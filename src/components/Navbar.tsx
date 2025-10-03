@@ -37,6 +37,9 @@ export default function Navbar() {
             <NavLink to="/about" className={linkClass}>
               About
             </NavLink>
+            <NavLink to="/experience" className={linkClass}
+            >Experience
+            </NavLink>
             {/* <NavLink to="/contact" className={linkClass}>
               Contact
             </NavLink> */}
@@ -102,6 +105,9 @@ export default function Navbar() {
           </NavLink>
           <NavLink to="/about" className={mobileLinkClass} onClick={handleClose}>
             About
+          </NavLink>
+          <NavLink to="/experience"className={mobileLinkClass} onClick={handleClose}
+          >Experience
           </NavLink>
           {/* <NavLink to="/contact" className={mobileLinkClass} onClick={handleClose}>
             Contact
