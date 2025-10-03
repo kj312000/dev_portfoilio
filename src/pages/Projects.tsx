@@ -35,7 +35,7 @@ export default function Projects() {
             <p className="mt-2 text-gray-300 text-sm">
               Imteractive Cake shop webpage
             </p>
-            <a href="https://aesthetic-bakesters.netlify.app/cupcakes" target="_blank" rel="noreferrer"
+            <a href="https://aesthetic-bakesters.netlify.app" target="_blank" rel="noreferrer"
               className="text-teal-400 mt-3 inline-block hover:underline">
               View →
             </a>
