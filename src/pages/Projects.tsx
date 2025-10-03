@@ -5,7 +5,20 @@ export default function Projects() {
     <Layout>
       <div className="pt-24 px-6 max-w-6xl mx-auto">
         <h1 className="text-3xl font-bold mb-6 text-teal-300">🚀 Projects</h1>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 shadow-lg border border-white/10 hover:scale-105 transition">
+            <h2 className="text-xl font-semibold text-purple-300">NFT Gallery</h2>
+            <p className="mt-2 text-gray-300 text-sm">
+              A minimalist NFT gallery for creators.
+            </p>
+            <a href="https://nft-gallery-56j3.onrender.com/" target="_blank" rel="noreferrer"
+              className="text-teal-400 mt-3 inline-block hover:underline">
+              View →
+            </a>
+          </div>
+
           <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 shadow-lg border border-white/10 hover:scale-105 transition">
             <h2 className="text-xl font-semibold text-purple-300">Solana Fun</h2>
             <p className="mt-2 text-gray-300 text-sm">
@@ -16,8 +29,8 @@ export default function Projects() {
               View →
             </a>
           </div>
-          
-            <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 shadow-lg border border-white/10 hover:scale-105 transition">
+
+          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 shadow-lg border border-white/10 hover:scale-105 transition">
             <h2 className="text-xl font-semibold text-purple-300">Aesthetic Bakester</h2>
             <p className="mt-2 text-gray-300 text-sm">
               Imteractive Cake shop webpage
@@ -28,7 +41,7 @@ export default function Projects() {
             </a>
           </div>
 
-            <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 shadow-lg border border-white/10 hover:scale-105 transition">
+          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 shadow-lg border border-white/10 hover:scale-105 transition">
             <h2 className="text-xl font-semibold text-purple-300">Wingrow Agritech</h2>
             <p className="mt-2 text-gray-300 text-sm">
               Farmers interactive dashboard demo for wingrow agritech
@@ -39,7 +52,7 @@ export default function Projects() {
             </a>
           </div>
 
-            <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 shadow-lg border border-white/10 hover:scale-105 transition">
+          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 shadow-lg border border-white/10 hover:scale-105 transition">
             <h2 className="text-xl font-semibold text-purple-300">Weather App</h2>
             <p className="mt-2 text-gray-300 text-sm">
               Interactive weather app built using react.
@@ -50,7 +63,7 @@ export default function Projects() {
             </a>
           </div>
 
-            <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 shadow-lg border border-white/10 hover:scale-105 transition">
+          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 shadow-lg border border-white/10 hover:scale-105 transition">
             <h2 className="text-xl font-semibold text-purple-300">Contact Book</h2>
             <p className="mt-2 text-gray-300 text-sm">
               Contact book webapp built using React-Redux.

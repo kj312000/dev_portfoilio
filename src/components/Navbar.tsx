@@ -37,9 +37,9 @@ export default function Navbar() {
             <NavLink to="/about" className={linkClass}>
               About
             </NavLink>
-            <NavLink to="/contact" className={linkClass}>
+            {/* <NavLink to="/contact" className={linkClass}>
               Contact
-            </NavLink>
+            </NavLink> */}
           </div>
 
           {/* Resume + Socials (collapses on small screens) */}
@@ -103,9 +103,9 @@ export default function Navbar() {
           <NavLink to="/about" className={mobileLinkClass} onClick={handleClose}>
             About
           </NavLink>
-          <NavLink to="/contact" className={mobileLinkClass} onClick={handleClose}>
+          {/* <NavLink to="/contact" className={mobileLinkClass} onClick={handleClose}>
             Contact
-          </NavLink>
+          </NavLink> */}
 
           <div className="pt-2 border-t border-white/5">
             <div className="flex items-center justify-center gap-6 mt-3">

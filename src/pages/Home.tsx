@@ -1,8 +1,8 @@
 import Layout from "../components/Layout";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import { Suspense } from "react";
-import CharacterModel from "../components/CharacterModel";
+// import { Canvas } from "@react-three/fiber";
+// import { OrbitControls } from "@react-three/drei";
+// import { Suspense } from "react";
+// import CharacterModel from "../components/CharacterModel";
 
 export default function Home() {
   return (

@@ -3,7 +3,15 @@ import BlockchainBlocks from "./scenes/BlockchainBlocks";
 import CodeMatrix from "./scenes/CodeMatrix";
 import TokenFlow from "./scenes/TokenFlow";
 import Starfield from "./scenes/Starfield";
+import TorusScene from "./scenes/TorusScene";
+import BlankScene from "./scenes/BlankScene";
+import FloatingSphereScene from "./scenes/FloatingSphereScene";
+import ParticleScene from "./scenes/ParticleScene";
+import WavyScene from "./scenes/WavyScene";
+
+
 import { ReactNode } from "react";
+import TunnelScene from "./scenes/TunnelScene";
 
 export default function Layout({ children }: { children: ReactNode }) {
   const { pathname } = useLocation();
@@ -14,13 +22,13 @@ export default function Layout({ children }: { children: ReactNode }) {
       Scene = Starfield;
       break;
     case "/projects":
-      Scene = Starfield;
+      Scene = WavyScene;
       break;
     case "/about":
-      Scene = Starfield;
+      Scene = ParticleScene;
       break;
     case "/contact":
-      Scene = Starfield;
+      Scene = ParticleScene;
       break;
     default:
       Scene = Starfield;

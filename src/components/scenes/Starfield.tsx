@@ -4,7 +4,7 @@ import { Stars, OrbitControls } from "@react-three/drei";
 export default function Starfield() {
   return (
     <div className="w-screen h-screen">
-      <Canvas camera={{ position: [0, 0, 6], fov: 75 }}>
+      <Canvas camera={{ position: [0, 0, 6], fov: 45 }}>
         <ambientLight intensity={0.2} />
         <Stars 
           radius={80}   // how far stars spread
