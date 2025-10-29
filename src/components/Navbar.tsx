@@ -116,7 +116,7 @@ export default function Navbar() {
           <div className="pt-2 border-t border-white/5">
             <div className="flex items-center justify-center gap-6 mt-3">
               <a
-                href="https://teal-otter-9f5df1.netlify.app/"
+                href="/KJ_new_2025.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="text-gray-400 hover:text-white text-2xl"
