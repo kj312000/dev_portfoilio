@@ -48,7 +48,7 @@ export default function Navbar() {
           {/* Resume + Socials (collapses on small screens) */}
           <div className="hidden md:flex md:items-center md:gap-4">
                           <a
-                href="https://teal-otter-9f5df1.netlify.app/"
+                href="/KJ_new_2025.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="text-gray-400 hover:text-white text-1xl"
