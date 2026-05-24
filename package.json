@@ -8,16 +8,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@coral-xyz/anchor": "^0.29.0",
-    "@react-three/drei": "^9.122.0",
-    "@react-three/fiber": "^8.18.0",
-    "framer-motion": "^12.23.22",
+    "@gsap/react": "^2.1.2",
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.23",
     "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "react-icons": "^5.5.0",
-    "react-responsive": "^10.0.1",
-    "react-router-dom": "^7.9.1",
-    "three": "^0.164.1"
+    "react-dom": "18.3.1"
   },
   "devDependencies": {
     "@types/react": "^19.1.13",
@@ -25,19 +20,8 @@
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
-    "rollup": "^4.21.0",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.6.3",
     "vite": "^5.4.0"
-  },
-  "overrides": {
-    "qrcode.react": {
-      "react": "18.3.1",
-      "react-dom": "18.3.1"
-    },
-    "react-qr-reader": {
-      "react": "18.3.1",
-      "react-dom": "18.3.1"
-    }
   }
 }

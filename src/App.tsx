@@ -1,22 +1,36 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import Projects from "./pages/Projects";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import WorkExperience from "./pages/WorkExperience";
+import { useEffect, useState } from "react";
+import { initSmoothScroll } from "./lib/smoothScroll";
+import Preloader from "./components/Preloader";
+import Cursor from "./components/Cursor";
+import Nav from "./components/Nav";
+import Hero from "./sections/Hero";
+import About from "./sections/About";
+import Skills from "./sections/Skills";
+import Experience from "./sections/Experience";
+import Work from "./sections/Work";
+import Contact from "./sections/Contact";
 
 export default function App() {
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    if (!ready) return;
+    initSmoothScroll();
+  }, [ready]);
+
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/experience" element={<WorkExperience />} />
-        {/* <Route path="/contact" element={<Contact />} /> */}
-      </Routes>
-    </BrowserRouter>
+    <div className="relative min-h-screen bg-bg text-ink">
+      <Preloader onDone={() => setReady(true)} />
+      <Cursor />
+      <Nav />
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Work />
+        <Contact />
+      </main>
+    </div>
   );
 }
