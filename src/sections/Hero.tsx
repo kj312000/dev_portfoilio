@@ -1,95 +1,99 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import FloatingShapes from "../components/FloatingShapes";
+import { magnetic } from "../lib/motion";
+import { chaseOrb } from "../lib/fx";
+import { ArrowDownRight, ArrowUpRight } from "../components/Icons";
+import { meta, ticker } from "../data/content";
 
 export default function Hero() {
   const root = useRef<HTMLElement>(null);
-  const line1 = useRef<HTMLSpanElement>(null);
-  const line2 = useRef<HTMLSpanElement>(null);
-  const tagline = useRef<HTMLParagraphElement>(null);
-  const meta = useRef<HTMLDivElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLAnchorElement>(null);
+  const orbRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!line1.current || !line2.current) return;
-
-    const splitToChars = (el: HTMLElement) => {
-      const text = el.textContent || "";
-      el.innerHTML = "";
-      const words = text.split(" ");
-      words.forEach((word, wi) => {
-        const wrap = document.createElement("span");
-        wrap.style.display = "inline-block";
-        wrap.style.overflow = "hidden";
-        wrap.style.verticalAlign = "top";
-        word.split("").forEach((c) => {
-          const ch = document.createElement("span");
-          ch.className = "char";
-          ch.textContent = c;
-          ch.style.display = "inline-block";
-          ch.style.transform = "translateY(110%)";
-          wrap.appendChild(ch);
-        });
-        el.appendChild(wrap);
-        if (wi < words.length - 1) el.appendChild(document.createTextNode(" "));
+    const cleanup = ctaRef.current ? magnetic(ctaRef.current, 0.16, 90) : () => {};
+    const cleanOrb =
+      orbRef.current && root.current ? chaseOrb(orbRef.current, root.current) : () => {};
+    const ctx = gsap.context(() => {
+      gsap.from("[data-stagger]", {
+        opacity: 0,
+        y: 28,
+        duration: 1,
+        ease: "expo.out",
+        stagger: 0.09,
+        delay: 0.15,
       });
-      return Array.from(el.querySelectorAll(".char")) as HTMLElement[];
+
+      // Gentle depart: hero settles back and dims as you scroll past
+      gsap.to(innerRef.current, {
+        y: -56,
+        opacity: 0.3,
+        scale: 0.985,
+        ease: "none",
+        scrollTrigger: {
+          trigger: root.current,
+          start: "top top",
+          end: "bottom 30%",
+          scrub: 0.6,
+        },
+      });
+    }, root);
+
+    return () => {
+      cleanup();
+      cleanOrb();
+      ctx.revert();
     };
-
-    const chars1 = splitToChars(line1.current);
-    const chars2 = splitToChars(line2.current);
-
-    const tl = gsap.timeline({ delay: 0.15 });
-    tl.to(chars1, { y: 0, duration: 0.9, ease: "expo.out", stagger: 0.02 })
-      .to(chars2, { y: 0, duration: 0.9, ease: "expo.out", stagger: 0.02 }, "-=0.75")
-      .from(tagline.current, { opacity: 0, y: 24, duration: 0.8, ease: "power3.out" }, "-=0.5")
-      .from(meta.current, { opacity: 0, y: 12, duration: 0.6, ease: "power3.out" }, "-=0.4");
   }, []);
 
   return (
-    <section
-      id="hero"
-      ref={root}
-      className="relative min-h-screen w-full overflow-hidden flex flex-col justify-center px-6 sm:px-10 pt-32 pb-24"
-    >
-      <FloatingShapes />
+    <section id="top" ref={root} className="relative pt-36 md:pt-44 pb-16 md:pb-20 overflow-hidden">
+      {/* Aurora field + cursor-chasing glow */}
+      <div className="aurora" aria-hidden="true">
+        <i className="a1" />
+        <i className="a2" />
+        <i className="a3" />
+      </div>
+      <div ref={orbRef} className="chase-orb" aria-hidden="true" />
 
-      <div className="relative z-10 max-w-7xl mx-auto w-full">
-        <div className="font-mono text-eyebrow uppercase text-ink-mute mb-8">
-          <span className="text-accent">●</span> Available for opportunities · Pune, IN
+      <div ref={innerRef} className="relative max-w-site mx-auto px-4 sm:px-6">
+        <div
+          data-stagger
+          className="inline-flex items-center gap-2.5 rounded-full border border-stroke bg-white/[0.03] px-4 py-2 mb-8"
+        >
+          <span className="dot" aria-hidden="true" />
+          <span className="font-mono text-[0.7rem] tracking-[0.14em] uppercase text-text-soft">
+            Open to opportunities — {meta.location}
+          </span>
         </div>
 
-        <h1 className="font-display font-medium text-display-xl text-ink tracking-tightest">
-          <span ref={line1} className="block">Kaustubh Jadhav,</span>
-          <span ref={line2} className="block">
-            <span className="font-serif italic font-normal text-ink/90">a full stack</span>
-            <span> &amp; AI engineer.</span>
-          </span>
+        <h1 data-stagger className="font-display font-bold text-hero max-w-4xl">
+          Full-stack engineer building{" "}
+          <span className="grad-text shimmer">AI products</span> that hold up in
+          production.
         </h1>
 
-        <p
-          ref={tagline}
-          className="mt-10 sm:mt-14 max-w-2xl text-xl sm:text-2xl text-ink-mute leading-snug"
-        >
-          4.5+ years shipping production web apps. Now bringing LLMs, RAG agents,
-          and MCP tooling into the full-stack — built with{" "}
-          <span className="text-ink">React, Node, LangChain &amp; LangGraph</span>.
+        <p data-stagger className="mt-7 max-w-xl text-lg md:text-xl text-text-soft leading-relaxed">
+          {meta.years} years shipping for enterprise — React, Node, and Azure at
+          scale. Now wiring LLMs, RAG agents, and MCP tooling into products
+          people actually trust.
         </p>
 
-        <div ref={meta} className="mt-12 flex flex-wrap items-center gap-3">
-          <a href="#work" className="btn-pill solid" data-cursor="see">See selected work →</a>
-          <a href="/resume.pdf" target="_blank" rel="noreferrer" className="btn-pill" data-cursor="open">
-            Download résumé ↓
+        <div data-stagger className="mt-9 flex flex-wrap items-center gap-4">
+          <a ref={ctaRef} href="#work" className="inline-flex btn btn-grad">
+            See the work <ArrowDownRight className="arr" />
           </a>
-          <a href="#contact" className="btn-pill" data-cursor="email">
-            Get in touch
+          <a href={meta.resume} target="_blank" rel="noreferrer" className="inline-flex btn btn-ghost">
+            Resume <ArrowUpRight className="arr" />
           </a>
         </div>
-      </div>
 
-      {/* Scroll cue */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-[10px] uppercase tracking-[0.3em] text-ink-mute z-10 flex flex-col items-center gap-2">
-        <span>Scroll</span>
-        <span className="w-px h-8 bg-ink-mute" />
+        <div data-stagger className="mt-14 flex flex-wrap gap-2 max-w-3xl">
+          {ticker.slice(0, 12).map((t) => (
+            <span key={t} className="chip">{t}</span>
+          ))}
+        </div>
       </div>
     </section>
   );
