@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>404 — Route not found / KJ.DEV</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <style>
+    * { margin: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      background: #0B0C0A;
+      color: #E9E7DC;
+      font-family: Consolas, "Courier New", monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image:
+        linear-gradient(rgba(233,231,220,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(233,231,220,0.06) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+    .panel { padding: 2rem; max-width: 640px; }
+    .code {
+      font-size: clamp(5rem, 20vw, 10rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: #C9F73A;
+      line-height: 1;
+      font-family: Arial Black, Arial, sans-serif;
+    }
+    .line { color: #A5AB9B; font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 1.5rem; }
+    .line b { color: #E9E7DC; font-weight: 400; }
+    a {
+      display: inline-block;
+      margin-top: 2rem;
+      color: #0B0C0A;
+      background: #C9F73A;
+      padding: 0.8rem 1.4rem;
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <div class="code">404</div>
+    <div class="line">$ route lookup ............ <b>FAILED</b></div>
+    <div class="line">&gt; requested path not found in /dist</div>
+    <div class="line">&gt; suggested action: return to base</div>
+    <a href="/">[ CD ~/HOME ]</a>
+  </div>
+</body>
+</html>
